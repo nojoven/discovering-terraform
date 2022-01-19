@@ -18,18 +18,18 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "web" {
-  count         = 5
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
-  user_data     = <<-EOF
-#!/bin/bash
-sudo apt-get update
-sudo apt-get install nginx -y
-sudo service nginx start
-EOF
+# resource "aws_instance" "web" {
+#   count         = 5
+#   ami           = data.aws_ami.ubuntu.id
+#   instance_type = "t3.micro"
+#   user_data     = <<-EOF
+#   #!/bin/bash
+# sudo apt-get update
+# sudo apt-get install nginx -y
+# sudo service nginx start
+# EOF
 
-  tags = {
-    Name = "Nginx-webserver"
-  }
-}
+#  tags = {
+#    Name = "Nginx-webserver"
+#  }
+# }
